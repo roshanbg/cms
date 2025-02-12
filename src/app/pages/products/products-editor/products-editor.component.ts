@@ -30,6 +30,12 @@ export class ProductsEditorComponent implements OnInit {
   form: FormGroup = new FormGroup({});
 
   ngOnInit(): void {
+    this._initForm();
+
+    if (this.id()) this._prepareForms(+this.id()!);
+  }
+
+  private _initForm(): void {
     this.form = this._formBuilder.group({
       id: [Math.floor(Math.random() * 228), [Validators.required]],
       name: [{ value: '', disabled: !this.isEditor() }, [Validators.required]],
@@ -37,7 +43,7 @@ export class ProductsEditorComponent implements OnInit {
         { value: '', disabled: !this.isEditor() },
         [Validators.required],
       ],
-      exp_Date: [
+      expDate: [
         { value: '', disabled: !this.isEditor() },
         [Validators.required],
       ],
@@ -46,17 +52,15 @@ export class ProductsEditorComponent implements OnInit {
         [Validators.required],
       ],
     });
-
-    if (this.id()) this._prepareForms(+this.id()!);
   }
 
   private _prepareForms(id: number): void {
-    const products = this._productsService.products.find(
-      (e) => e.id === +this.id()!
-    );
-    if (!products) return;
-    this.form.patchValue(products);
+    const product = this._productsService.products.find((e) => e.id === id);
+
+    if (!product) return;
+    this.form.patchValue(product);
   }
+
   public onSubmit(): void {
     if (this.form.invalid) return;
 
@@ -74,6 +78,11 @@ export class ProductsEditorComponent implements OnInit {
   }
 
   private _creat(): void {
-    this._productsService.products.push(this.form.getRawValue());
+    const form = this.form.getRawValue();
+
+    const date = form.expDate.split('-').join('');
+    form.expDate = +date;
+
+    this._productsService.products.push(form);
   }
 }

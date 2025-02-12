@@ -10,7 +10,7 @@ export class ProductsService {
       id: 1,
       name: 'Laben_App',
       countity: 5,
-      expDate: 20250813,
+      expDate: 20250214,
       unitPrice: 5,
     },
     {

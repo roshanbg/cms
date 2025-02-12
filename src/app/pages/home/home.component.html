@@ -10,13 +10,14 @@
   }
 </ul>
 <h4>Products that Expire Within 10 Days</h4>
-<!-- <ul>
+<ul>
   @for (item of getExpiringSoonProducts(); track item) {
   <li>
-    <strong>{{ item.name }}-ExpierDate:</strong>
-    {{ item.expDate }}
+    <strong>{{ item.name }}</strong> <br />
+    <strong>ExpierDate:</strong>
+    {{ item.expDate | customDatePipe }}
     <strong>Countity:</strong>
     {{ item.countity }}
   </li>
   }
-</ul> -->
+</ul>

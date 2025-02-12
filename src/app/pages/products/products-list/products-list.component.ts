@@ -4,11 +4,12 @@ import { ToolsComponent } from '../../separatedComponent/tools/tools.component';
 import { Router, RouterLink } from '@angular/router';
 import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CustomDatePipe } from '../../../pipe/custom-date.pipe';
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [ToolsComponent, FontAwesomeModule, RouterLink],
+  imports: [ToolsComponent, FontAwesomeModule, RouterLink, CustomDatePipe],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.scss',
 })

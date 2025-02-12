@@ -1,0 +1,74 @@
+<div class="card-header">
+  <div class="card-body">
+    <div [formGroup]="form">
+      <div class="row mb-3">
+        <div class="col-6">
+          <label class="form-label"
+            >Name @if (form.get('name')?.invalid) {
+            <span class="text-danger">*</span>}
+          </label>
+          <input class="form-control" type="text" formControlName="name" />
+        </div>
+        <div class="col-6">
+          <label class="form-label"
+            >Countity @if (form.get('countity')?.invalid) {
+            <span class="text-danger">*</span>
+            }
+          </label>
+          <input
+            class="form-control"
+            type="number"
+            formControlName="countity"
+          />
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <label class="form-label"
+              >Exp_Date @if (form.get('exp_Date')?.invalid) {
+              <span class="text-danger">*</span>
+              }
+            </label>
+            <input
+              class="form-control"
+              type="date"
+              formControlName="exp_Date"
+            />
+          </div>
+          <div class="col-6">
+            <label class="form-label"
+              >UnitPrice @if (form.get('unitPrice')?.invalid) {
+              <span class="text-danger">*</span>
+              }
+            </label>
+            <input
+              class="form-control"
+              type="number"
+              formControlName="unitPrice"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 d-flex justify-content-end">
+            @if (isEditor()) {
+            <button
+              class="btn btn-primary mx-1"
+              type="button"
+              [disabled]="form.invalid"
+              (click)="onSubmit()"
+            >
+              Submit
+            </button>
+            }
+            <button
+              class="btn btn-primary mx-1"
+              type="button"
+              routerLink="/products"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

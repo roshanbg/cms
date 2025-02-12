@@ -1,0 +1,9 @@
+<h2>Products With Quantity less than 10</h2>
+<ul>
+  @for (item of getLowStockProducts(); track item) {
+  <li>
+    <p>Name Of Product:{{ item.name }}</p>
+    <p>Qauntity Of Product:{{ item.countity }}</p>
+  </li>
+  }
+</ul>

@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-12 d-flex justify-content-end">
+    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Add">
+      <fa-icon
+        class="mx-5 my-3 d-flex justify-content-md fs-3"
+        [icon]="faSquarePlus"
+        routerLink="/products/new"
+      ></fa-icon>
+    </span>
+  </div>
+</div>
+
+<table class="table table-primary table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Countity</th>
+      <th scope="col">Exp_Date</th>
+      <th scope="col">UnitPrice</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of productsService.products; track item) {
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.countity }}</td>
+      <td>{{ item.exp_Date }}</td>
+      <td>{{ item.unitPrice }}</td>
+      <td>
+        <app-tools [itemId]="item.id" (action)="takeAction($event)"></app-tools>
+      </td>
+    </tr>
+
+    }@empty {
+    <td>
+      <p>No Data</p>
+    </td>
+    }
+  </tbody>
+</table>

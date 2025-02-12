@@ -2,6 +2,6 @@ export interface Product {
   id: number;
   name: string;
   countity: number;
-  expDate: string;
+  expDate: number;
   unitPrice: number;
 }

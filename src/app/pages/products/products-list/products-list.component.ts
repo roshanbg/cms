@@ -1,15 +1,22 @@
 import { Component, inject } from '@angular/core';
 import { ProductsService } from '../../../service/products.service';
-import { ToolsComponent } from '../../separatedComponent/tools/tools.component';
 import { Router, RouterLink } from '@angular/router';
 import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CustomDatePipe } from '../../../pipe/custom-date.pipe';
+import { CurrencyPipe } from '@angular/common';
+import { ToolsComponent } from '../../../components/tools/tools.component';
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [ToolsComponent, FontAwesomeModule, RouterLink, CustomDatePipe],
+  imports: [
+    ToolsComponent,
+    FontAwesomeModule,
+    RouterLink,
+    CustomDatePipe,
+    CurrencyPipe,
+  ],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.scss',
 })

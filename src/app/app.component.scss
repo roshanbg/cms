@@ -1,0 +1,26 @@
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #7cb5ed;
+  color: white;
+  padding-top: 20px;
+}
+
+.side-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+}
+
+.side-nav a:hover {
+  background-color: #2d92cd;
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+}

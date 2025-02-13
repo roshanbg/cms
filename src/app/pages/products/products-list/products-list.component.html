@@ -26,7 +26,7 @@
       <td>{{ item.name }}</td>
       <td>{{ item.countity }}</td>
       <td>{{ item.expDate | customDatePipe }}</td>
-      <td>{{ item.unitPrice }}</td>
+      <td>{{ item.unitPrice | currency : "AED" }}</td>
       <td>
         <app-tools [itemId]="item.id" (action)="takeAction($event)"></app-tools>
       </td>

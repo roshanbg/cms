@@ -9,7 +9,7 @@ export class ProductsService {
     {
       id: 1,
       imageUrl: '/assets/yogurt.jpeg',
-      name: 'Laben_App',
+      name: 'Laben App',
       countity: 5,
       expDate: 20250214,
       unitPrice: 5,

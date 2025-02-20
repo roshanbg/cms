@@ -1,5 +1,9 @@
 <div class="card">
-  <h5 class="card-header">{{ product().name }}</h5>
+  <!-- <h5 class="card-header">{{ product().name }}</h5> -->
+  <h5 class="card-header">
+    <img [src]="product().imageUrl" alt="Image" width="50" height="50" />
+    {{ product().name }}
+  </h5>
   <div class="card-body">
     <h6><strong>Number Of Items:</strong> {{ product().countity }}</h6>
     <h6><strong>Item Price:</strong> {{ product().unitPrice }}</h6>

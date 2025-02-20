@@ -1,0 +1,109 @@
+<div class="d-grid d-flex justify-content-center">
+  @for (item of productsService.products; track item) {
+
+  <app-product-card
+    class="mx-1"
+    [product]="item"
+    (onClick)="updateQuantity(item.id, $event)"
+  />
+  }
+  <div class="align-text-bottom">
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#orderModal"
+    >
+      CheckOut
+    </button>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="orderModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Order</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        @for (item of productsService.checkOut; track item) {
+        <h6><strong>item:</strong>{{ item.name }}</h6>
+        <h6><strong>total:</strong>{{ item.total }}</h6>
+        }
+      </div>
+      <h6 class="text-info">
+        <strong>Total ammont:</strong>{{ productsService.totalAmmount }}
+      </h6>
+
+      <div>
+        <label class="label" for="dropdown">Choose an option:</label>
+        <select
+          class="form-select form-select-lg mb-3"
+          id="dropdown"
+          [(ngModel)]="selectedOption"
+        >
+          @for (item of addressesService.addresses; track item) {
+          <option [value]="item">
+            {{ item.name }}-{{ item.building }}-{{ item.apartmentNumber }}
+          </option>
+
+          }
+        </select>
+      </div>
+
+      <div class="radio-button">
+        <label class="radio-button">
+          <input
+            type="radio"
+            name="option"
+            [(ngModel)]="payment"
+            value="option1"
+          />
+          Cash payment
+        </label>
+      </div>
+      <div class="radio-button">
+        <label class="radio-button">
+          <input
+            type="radio"
+            name="option"
+            [(ngModel)]="payment"
+            value="option2"
+          />
+          Pay later
+        </label>
+      </div>
+      <div class="radio-button">
+        <label class="radio-button">
+          <input
+            type="radio"
+            name="option"
+            [(ngModel)]="payment"
+            value="option3"
+          />
+          Pay by card
+        </label>
+      </div>
+      @if (payment==='option3') {
+      <label for="inputField" class="label">Card number:</label>
+      <input type="string" id="inputField" [(ngModel)]="inputCardNumber" />
+      }
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Order</button>
+      </div>
+    </div>
+  </div>
+</div>

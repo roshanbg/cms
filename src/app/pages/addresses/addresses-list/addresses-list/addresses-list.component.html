@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-12 d-flex justify-content-end">
+    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Add">
+      <fa-icon
+        class="mx-5 my-3 d-flex justify-content-md fs-3"
+        [icon]="faSquarePlus"
+        routerLink="/addresses/new"
+      ></fa-icon>
+    </span>
+  </div>
+</div>
+
+<table class="table table-info table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Street</th>
+      <th scope="col">Building</th>
+      <th scope="col">ApartmentNumber</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of addressesService.addresses; track $index) {
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.street }}</td>
+      <td>{{ item.building }}</td>
+      <td>{{ item.apartmentNumber }}</td>
+      <td>
+        <app-tools [itemId]="item.id" (action)="takeAction($event)"></app-tools>
+      </td>
+    </tr>
+    }@empty {
+    <tr>
+      <p>No Data</p>
+    </tr>
+    }
+  </tbody>
+</table>

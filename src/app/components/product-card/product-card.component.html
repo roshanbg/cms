@@ -1,0 +1,30 @@
+<div class="card">
+  <h5 class="card-header">{{ product().name }}</h5>
+  <div class="card-body">
+    <h6><strong>Number Of Items:</strong> {{ product().countity }}</h6>
+    <h6><strong>Item Price:</strong> {{ product().unitPrice }}</h6>
+
+    @if(numberOfItems>0){
+    <h6 class="text-info">
+      Total ammount: {{ numberOfItems * product().unitPrice }}
+    </h6>
+    }
+  </div>
+  <div class="card-footer">
+    <div class="btn-group" role="group">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="onRemove()"
+      >
+        -
+      </button>
+      <button type="button" class="btn btn-outline-secondary" [disabled]="true">
+        {{ numberOfItems }}
+      </button>
+      <button type="button" class="btn btn-outline-primary" (click)="onAdd()">
+        +
+      </button>
+    </div>
+  </div>
+</div>

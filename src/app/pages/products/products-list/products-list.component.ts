@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CustomDatePipe } from '../../../pipe/custom-date.pipe';
 import { CurrencyPipe } from '@angular/common';
 import { ToolsComponent } from '../../../components/tools/tools.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-products-list',
@@ -16,6 +17,7 @@ import { ToolsComponent } from '../../../components/tools/tools.component';
     RouterLink,
     CustomDatePipe,
     CurrencyPipe,
+    FormsModule,
   ],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.scss',
@@ -42,6 +44,12 @@ export class ProductsListComponent {
   deleteItem(id: number): void {
     this.productsService.products = this.productsService.products.filter(
       (e) => e.id !== id
+    );
+  }
+
+  deleteSelected(): void {
+    this.productsService.products = this.productsService.products.filter(
+      (e) => !e.selected
     );
   }
 }

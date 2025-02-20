@@ -1,0 +1,70 @@
+<div class="card-header">
+  <div class="card-body">
+    <div [formGroup]="form">
+      <div class="row mb-3">
+        <div class="col-6">
+          <label class="form-label"
+            >Name @if (form.get('name')?.invalid) {
+            <span class="text-danger">*</span>}
+          </label>
+          <input class="form-control" type="text" formControlName="name" />
+        </div>
+        <div class="col-6">
+          <label class="form-label"
+            >Street @if (form.get('street')?.invalid) {
+            <span class="text-danger">*</span>
+            }
+          </label>
+          <input class="form-control" type="string" formControlName="street" />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <label class="form-label"
+            >Building @if (form.get('building')?.invalid) {
+            <span class="text-danger">*</span>
+            }
+          </label>
+          <input
+            class="form-control"
+            type="string"
+            formControlName="building"
+          />
+        </div>
+        <div class="col-6">
+          <label class="form-label"
+            >ApartmentNumber @if (form.get('apartmentNumber')?.invalid) {
+            <span class="text-danger">*</span>
+            }
+          </label>
+          <input
+            class="form-control"
+            type="number"
+            formControlName="apartmentNumber"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12 d-flex justify-content-end">
+          @if (isEditor()) {
+          <button
+            class="btn btn-primary mx-1"
+            type="button"
+            [disabled]="form.invalid"
+            (click)="onSubmit()"
+          >
+            Submit
+          </button>
+          }
+          <button
+            class="btn btn-primary mx-1"
+            type="button"
+            routerLink="/addresses"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

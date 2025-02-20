@@ -13,20 +13,35 @@
 <table class="table table-primary table-striped">
   <thead>
     <tr>
+      <th scope="col">Image</th>
       <th scope="col">Name</th>
       <th scope="col">Countity</th>
       <th scope="col">Exp Date</th>
       <th scope="col">UnitPrice</th>
+      <th scope="col"></th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     @for (item of productsService.products; track item) {
     <tr>
+      <td>
+        <img [src]="item.imageUrl" alt="Image" width="50" />
+      </td>
       <td>{{ item.name }}</td>
       <td>{{ item.countity }}</td>
       <td>{{ item.expDate | customDatePipe }}</td>
       <td>{{ item.unitPrice | currency : "AED" }}</td>
+      <td>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineFormCheck"
+            [(ngModel)]="item.selected"
+          />
+        </div>
+      </td>
       <td>
         <app-tools [itemId]="item.id" (action)="takeAction($event)"></app-tools>
       </td>
@@ -39,3 +54,14 @@
     }
   </tbody>
 </table>
+<div class="row">
+  <div class="col-12 d-flex justify-content-end">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      (click)="deleteSelected()"
+    >
+      Delete Selected
+    </button>
+  </div>
+</div>

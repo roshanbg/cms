@@ -21,3 +21,19 @@
   </li>
   }
 </ul>
+<div class="row mb-3">
+  <div class="col-6">
+    <h1 class="text-info text-center text-decoration-underline">
+      ProductsChart
+    </h1>
+    <div style="display: block; width: 80%; margin: 0 auto">
+      <canvas
+        baseChart
+        [data]="chartData"
+        [options]="chartOptions"
+        [type]="'bar'"
+      >
+      </canvas>
+    </div>
+  </div>
+</div>

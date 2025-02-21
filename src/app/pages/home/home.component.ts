@@ -1,16 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ProductsService } from '../../service/products.service';
 import { Product } from '../../model/products.model';
 import { CustomDatePipe } from '../../pipe/custom-date.pipe';
+import { ChartData, ChartOptions } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CustomDatePipe],
+  imports: [CustomDatePipe, BaseChartDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   _productsService = inject(ProductsService);
 
   getLowStockProducts(): Product[] {
@@ -35,5 +37,42 @@ export class HomeComponent {
     const day = date.getDate().toString().padStart(2, '0');
 
     return `${year}${month}${day}`;
+  }
+
+  chartData: ChartData<'bar'> = {
+    labels: [],
+    datasets: [
+      {
+        data: [],
+        label: 'Ingredients Count',
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  chartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      x: {
+        title: { display: true, text: 'Products' },
+      },
+      y: {
+        title: { display: true, text: 'Ingredient Count' },
+        beginAtZero: true,
+      },
+    },
+  };
+
+  ngOnInit(): void {
+    const topProducts = this._productsService.products
+      .sort((a, b) => b.countity - a.countity)
+      .slice(0, 10);
+
+    this.chartData.labels = topProducts.map((product) => product.name);
+    this.chartData.datasets[0].data = topProducts.map(
+      (product) => product.countity
+    );
   }
 }

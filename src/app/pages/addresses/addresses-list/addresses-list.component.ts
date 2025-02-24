@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { AddressesService } from '../../../../service/addresses.service';
+import { AddressesService } from '../../../service/addresses.service';
 import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ToolsComponent } from '../../../../components/tools/tools.component';
+import { ToolsComponent } from '../../../components/tools/tools.component';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({

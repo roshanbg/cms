@@ -9,10 +9,12 @@ export class MenusService {
     {
       id: 1,
       name: 'Chocolate',
+      productIds: [],
     },
     {
       id: 2,
       name: 'Pizza',
+      productIds: [],
     },
   ];
 }

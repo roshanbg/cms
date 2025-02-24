@@ -76,8 +76,6 @@ export class MenuEditorComponent implements OnInit {
     this._menusService.menus.push(form);
   }
 
-  saveSelectedId(): void {}
-
   private _productIds: number[] = [];
 
   productSelected(id: number) {

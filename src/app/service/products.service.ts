@@ -13,7 +13,6 @@ export class ProductsService {
       countity: 5,
       expDate: 20250214,
       unitPrice: 5,
-      selected: false,
     },
     {
       id: 2,
@@ -22,7 +21,6 @@ export class ProductsService {
       countity: 10,
       expDate: 20251013,
       unitPrice: 10,
-      selected: false,
     },
     {
       id: 3,
@@ -31,7 +29,6 @@ export class ProductsService {
       countity: 7,
       expDate: 20250910,
       unitPrice: 9,
-      selected: false,
     },
     {
       id: 4,
@@ -40,7 +37,6 @@ export class ProductsService {
       countity: 15,
       expDate: 20260910,
       unitPrice: 5,
-      selected: false,
     },
     {
       id: 5,
@@ -49,7 +45,6 @@ export class ProductsService {
       countity: 25,
       expDate: 20250810,
       unitPrice: 6.5,
-      selected: false,
     },
     {
       id: 6,
@@ -58,7 +53,6 @@ export class ProductsService {
       countity: 88,
       expDate: 20250410,
       unitPrice: 3,
-      selected: false,
     },
     {
       id: 7,
@@ -67,7 +61,6 @@ export class ProductsService {
       countity: 45,
       expDate: 20250610,
       unitPrice: 12,
-      selected: false,
     },
     {
       id: 8,
@@ -76,7 +69,6 @@ export class ProductsService {
       countity: 78,
       expDate: 20250410,
       unitPrice: 15,
-      selected: false,
     },
     {
       id: 9,
@@ -85,7 +77,6 @@ export class ProductsService {
       countity: 3,
       expDate: 20250110,
       unitPrice: 6,
-      selected: false,
     },
     {
       id: 10,
@@ -94,7 +85,6 @@ export class ProductsService {
       countity: 25,
       expDate: 20250210,
       unitPrice: 11,
-      selected: false,
     },
     {
       id: 11,
@@ -103,7 +93,6 @@ export class ProductsService {
       countity: 2,
       expDate: 20250410,
       unitPrice: 3.5,
-      selected: false,
     },
   ];
 

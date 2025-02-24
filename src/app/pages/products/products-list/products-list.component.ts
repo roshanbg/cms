@@ -28,6 +28,8 @@ export class ProductsListComponent {
 
   faSquarePlus = faSquarePlus;
 
+  private _selectedIds: number[] = [];
+
   takeAction(event: { id: number; type: string }): void {
     switch (event.type) {
       case 'edit':
@@ -49,7 +51,14 @@ export class ProductsListComponent {
 
   deleteSelected(): void {
     this.productsService.products = this.productsService.products.filter(
-      (e) => !e.selected
+      (e) => !this._selectedIds.includes(e.id)
     );
+  }
+
+  productSelected(id: number) {
+    const productId = this._selectedIds.find((e) => e === id);
+    if (productId)
+      this._selectedIds = this._selectedIds.filter((e) => e !== id);
+    else this._selectedIds.push(id);
   }
 }

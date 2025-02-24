@@ -5,7 +5,6 @@ export interface Product {
   countity: number;
   expDate: number;
   unitPrice: number;
-  selected: boolean;
 }
 
 export interface CheckOut {

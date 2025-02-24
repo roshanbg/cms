@@ -6,9 +6,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { AddressesService } from '../../../../../service/addresses.service';
 import { Router, RouterLink } from '@angular/router';
-import { PageMode } from '../../../../../model/enums.model';
+import { AddressesService } from '../../../service/addresses.service';
+import { PageMode } from '../../../model/enums.model';
 
 @Component({
   selector: 'app-addresses-editor',

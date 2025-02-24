@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { AddressesListComponent } from './addresses-list/addresses-list.component';
-import { AddressesEditorComponent } from './addresses-editor/addresses-editor/addresses-editor.component';
-import { PageMode } from '../../../model/enums.model';
+import { PageMode } from '../../model/enums.model';
+import { AddressesEditorComponent } from './addresses-editor/addresses-editor.component';
 
 export const ADDRESSES_ROUTES: Routes = [
   {

@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">NAme</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of menusService.menus; track $index) {
+    <tr>
+      <th>{{ item.name }}</th>
+    </tr>
+    }@empty {
+    <tr>
+      <p>No Data</p>
+    </tr>
+    }
+  </tbody>
+</table>

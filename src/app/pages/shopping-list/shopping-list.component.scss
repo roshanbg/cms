@@ -36,3 +36,12 @@
   cursor: pointer;
   color: #1e4461;
 }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  margin: 0%;
+}

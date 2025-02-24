@@ -1,4 +1,4 @@
-<div class="d-grid d-flex justify-content-center">
+<div class="card-container">
   @for (item of productsService.products; track item) {
 
   <app-product-card
@@ -6,6 +6,7 @@
     [product]="item"
     (onClick)="updateQuantity(item.id, $event)"
   />
+
   }
   <div class="align-text-bottom">
     <button
